@@ -1,26 +1,48 @@
-// Algoritmo con condicional If-Else
+//  Definiendo la función del numero aleatorio.
+function generarNumeroAleatorio() {
+    return Math.floor(Math.random() * 20) + 1;
+};
 
-const edadUsuario = parseInt(prompt("Por favor, ingrese su edad"));
-if(edadUsuario >= 18) {
-    alert("Usted es mayor de edad");
-    console.log(edadUsuario);
-} else {
-    alert("Usted es menor de edad");
+while (true) {
+    const edadIngresada = prompt("Ingresa tu edad")
+
+    if(!isNaN(edadIngresada)) {
+        edad = parseInt(edadIngresada)
+        break;
+    }
+        alert("Por favor, ingrese su edad")
 }
-const boletoUsuario = prompt("Usted tiene ticket? Por favor responda con 'Si o con No'");
-    if(boletoUsuario == "Si") {
-    alert("Usted tiene ticket");
-    console.log(boletoUsuario);
+
+if(edad >= 18) {
+    alert("Eres mayor de edad")
+        const tieneTicket = prompt("¿Tienes un ticket para el casino? Responda con 'si' o 'no'")
+                if(tieneTicket && tieneTicket.toLowerCase() === "si"){
+                    alert("¡Que disfrutes del casino! Intenta adivinar un número del 1 al 20, ¡Mucha suerte!")
+                    const numeroAleatorio = generarNumeroAleatorio();
+                    let intentos = 0;
+                    let numeroUsuario;
+            while(intentos < 3) {
+                numeroUsuario = parseInt(prompt("Ingresa tu intento!"));
+                    if(isNaN(numeroUsuario)) {
+                    alert("Por favor, intente solo con números del 1 al 20")
+                        } else {
+                            intentos++
+                            if(numeroUsuario === numeroAleatorio) {
+                                alert("Felicidades! Has ganado el juego")
+                                break;}
+                    else if (intentos === 3) {
+                    alert(`Lo siento, has agotado tus intentos, ¡Suerte la proxima! (El numero era ${numeroAleatorio}`)}
+                        else if (numeroUsuario < 1 || numeroUsuario > 20) {
+                            alert("El número está entre el 1 y el 20.")}
+                                else if (numeroUsuario < numeroAleatorio) {
+                                    alert("Intenta con un número más grande.")}
+                                        else {
+                                            alert("Intenta con un número mas chico.")}
+            } 
+        }
+    }
+        else {
+            alert("Lamentamos que no puedas entrar al casino :(")}
     } else {
-    alert("Usted no cuenta con ticket")
-}
-
-
-// Algoritmo con ciclo
-
-let ingresarNumero = parseInt(prompt("Por favor, ingrese un número"))
-
-for(let i = 1; i <= 10; i++) {
-    let resultado = ingresarNumero * i;
-    console.log(ingresarNumero + " X " + i + " = " + resultado);
+        alert("Eres menor de edad, no tienes permitido el acceso")
 }
